@@ -21,8 +21,8 @@ class Name(Field):
 class Phone(Field):
     """A class for storing a phone number. Has format validation (at least 10 digits)."""
     def __init__(self, value):
-        if len(value) <= 10 or not value.isdigit():
-            raise ValueError("Phone number must be 10 digits long.")
+        if (len(value) < 10 or len(value) > 12) or not value.isdigit():
+            raise ValueError("Phone number must be 10 or 12 digits long.")
         super().__init__(value)
 
 class Birthday(Field):
